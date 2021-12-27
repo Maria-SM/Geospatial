@@ -37,3 +37,14 @@ Among the different geospatial processing functions you can perform are the foll
 
 ![Image](https://i.ibb.co/g48NprM/Captura-4.jpg)
 
+Map.addLayer(eeObject, visParams, name, shown, opacity);
+var RGB_TrueColor = {min:0, max:0.3, bands:['B4', 'B3', 'B2']};
+Map.addLayer(filtered, RGB_TrueColor, 'true color');
+Map.addLayer(filtered.median(), RGB_TrueColor, 'true color(median)');
+
+
+```Map.addLayer(eeObject, visParams, name, shown, opacity);
+var RGB_TrueColor = {min:0, max:0.3, bands:['B4', 'B3', 'B2']};
+Map.addLayer(filtered, RGB_TrueColor, 'true color');
+Map.addLayer(filtered.median(), RGB_TrueColor, 'true color(median)');
+```
