@@ -5,6 +5,7 @@
 Map.addLayer(srtm);
 
 #On this layer (SRTM), we can add more info
+gagagsha
 
 #If we enter Map.addLayer and then click (Ctrl + space) the following parameters will appear:#
 Map.addLayer(eeObject, visParams, name, shown, opacity)
