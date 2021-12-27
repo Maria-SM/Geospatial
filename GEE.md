@@ -23,7 +23,7 @@ Among the different geospatial processing functions you can perform are the foll
 - Terrain and Land Cover
 - Weather & Climate
 
-### 1. Image collection:
+### 1. Image Collection:
 
 -> Enter the dataset you are interested in
 
@@ -37,14 +37,18 @@ Among the different geospatial processing functions you can perform are the foll
 
 ![Image](https://i.ibb.co/g48NprM/Captura-4.jpg)
 
-Map.addLayer(eeObject, visParams, name, shown, opacity);
-var RGB_TrueColor = {min:0, max:0.3, bands:['B4', 'B3', 'B2']};
-Map.addLayer(filtered, RGB_TrueColor, 'true color');
-Map.addLayer(filtered.median(), RGB_TrueColor, 'true color(median)');
+### 2. Adding Layers:
 
+Once we have imported the product we are interested in (e.g. SRTM), we add it by typing:
 
-```Map.addLayer(eeObject, visParams, name, shown, opacity);
-var RGB_TrueColor = {min:0, max:0.3, bands:['B4', 'B3', 'B2']};
-Map.addLayer(filtered, RGB_TrueColor, 'true color');
-Map.addLayer(filtered.median(), RGB_TrueColor, 'true color(median)');
+```Map.addLayer(srtm);
 ```
+
+On this layer (SRTM), we can add more info. If we enter Map.addLayer and then click (Ctrl + space) the following parameters will appear:
+```Map.addLayer(eeObject, visParams, name, shown, opacity)
+```
+
+- eeObject --> this parameters relates to the product we add as a new layer (e.g. SRTM)
+- visParams --> This parameter relates to the visualisation of the object. Basically it determines how this will look. 
+- name -->
+
