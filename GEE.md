@@ -45,24 +45,34 @@ Once we have **imported** the product we are interested in (e.g. SRTM), we **dis
 On this layer (SRTM), we can add more info. If we enter `Map.addLayer` and then click (Ctrl + space) the following parameters will appear:
 `Map.addLayer(eeObject, visParams, name, shown, opacity)`
 
-- eeObject --> this parameters relates to the product we add as a new layer (e.g. SRTM)
-- visParams --> This parameter relates the visualisation of the object. Basically it determines how this will look. 
-- name --> This parameter relates to the name of the layer we want to add.  
+- eeObject --> this parameters refers to the product we add as a new layer (e.g. SRTM)
+- visParams --> This parameter refers the visualisation of the object. Basically it determines how this will look. 
+- name --> This parameter refers to the name of the layer we want to add.  
 - shown --> Parameter used to turn your layer on or off. If it's off, your layer will appear as invisible. By default is on.
 - opacity --> Parameter to control the level of opacity of the image you are overlaying
 
 eeObject = srtm
-visParams = {min:0, max:1000} => data elevation for srtm. This data is in meters. 
+visParams = {min:0, max:3000} => data elevation for srtm. This data is in meters. 
 name = srtm. As soon as we enter the name of this new layer it will show up on the "layer" tab menu.
 
-`Map.addLayer(srtm, {min:0, max:1000}, 'srtm');`
+`Map.addLayer(srtm, {min:0, max:3000}, 'srtm');`
 
 We can also customise the visualisation by adding **colour**.
-`Map.addLayer(srtm, {min:0, max:1000, palette:'yellow, purple'}, 'srtm');`. If you want to add additional colours to the palette, the default pallette assigns the first colour to the lowest values, and the last colour to the upper values, and then interpolates in between.
-`Map.addLayer(srtm, {min:0, max:1000, palette:'yellow,blue, grey, purple'}, 'srtm');`. For more info check out [here](https://developers.google.com/earth-engine/guides/image_visualization)
+`Map.addLayer(srtm, {min:0, max:3000, palette:'yellow, purple'}, 'srtm');`. If you want to add additional colours to the palette, the default pallette assigns the first colour to the lowest values, and the last colour to the upper values, and then interpolates in between.
+`Map.addLayer(srtm, {min:0, max:3000, palette:'yellow,blue, grey, purple'}, 'srtm');`. For more info check out [here](https://developers.google.com/earth-engine/guides/image_visualization)
 
 Now we are adding a new layer for water:
 `Map.addLayer(water, {bands:'occurrence', min:0, max:100, palette:'lightblue, blue'}, 'water');`
 
 To better appreciate the **srtm** and **water** values, we can search for the grand canyon (USA) and see what it looks like:
+
 ![Image](https://i.ibb.co/sKwpcqw/Captura-5.jpg)
+
+Something interesting to note at this point is that we can check any raster value by using the **inspector** tool provided by GEE in the upper right of the dashboard.
+
+![Image](https://i.ibb.co/tx1Sxk3/Captura-6.jpg)
+
+Additionally to these layers we can also add 'slope' to better reflect elevation variation. For this purpose we will enter a new variable called 'slope':
+`var slope = ee.Terrain.slope(srtm)`
+And in order to visualise this new layer, once again, we will proceed as follows:
+`Map.addLayer(slope, {min:0, max:45},'slope');`
