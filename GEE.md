@@ -1,15 +1,16 @@
 
 Google Earth Engine is a **cloud-based platform** for earth science and analysis. It helps with managing a lot of geospatial datasets.
 
-What can GEE can do?
+What can GEE do? 
+Some of the functionalities that GEE is capable of are the followings:
 - Get an image
-- apply an algorithm to an image
-- filter a collection (series of images)
-- map an algorithm over a collection
-- reduce a collection
-- compute aggregate statistics
+- Apply an algorithm to an image
+- Filter a collection (series of images)
+- Map an algorithm over a collection
+- Reduce a collection
+- Compute aggregate statistics
 
-Among the different geospatial processing functions you can perform are the following:
+Among the different geospatial processing functions you can perform with GEE are the following:
 - Image collection
 - Filter
 - Reducer
@@ -76,3 +77,6 @@ Additionally to these layers we can also add 'slope' to better reflect elevation
 `var slope = ee.Terrain.slope(srtm)`
 And in order to visualise this new layer, once again, we will proceed as follows:
 `Map.addLayer(slope, {min:0, max:45},'slope');`
+
+**2. Units**
+If you are not sure what min and max values you should select 
